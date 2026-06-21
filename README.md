@@ -1,4 +1,4 @@
-# 🛒 E-Commerce Customer Intelligence & Sales Analytics
+# E-Commerce Customer Intelligence & Sales Analytics
 
 [![Python](https://img.shields.io/badge/Python-Data_Analytics-blue?style=flat\&logo=python)](#)
 [![Pandas](https://img.shields.io/badge/Data_Processing-Pandas-darkblue?style=flat)](#)
