@@ -198,12 +198,21 @@ Review shipping strategies for high freight-ratio categories by optimizing packa
 
 ### Geographic Seller Performance
 
-<img width="1340" height="525" alt="newplot (30)" src="https://github.com/user-attachments/assets/fc2cabba-aa42-43b8-9e7a-408171d8e318" />
+<img width="1340" height="525" alt="newplot (29)" src="https://github.com/user-attachments/assets/2e8d1b9b-a8a2-4986-8b47-591922f89b01" />
 
+####  Methodology
+
+Revenue Contribution (%) =
+(State Revenue / Total Marketplace Revenue) × 100
+
+This metric measures each state's share of total marketplace revenue and helps identify geographic concentration within the seller network.
 
 #### Insight
+Marketplace revenue is highly concentrated within a small number of states. São Paulo (SP) contributes approximately 64% of total marketplace revenue, significantly outperforming all other regions. The remaining states contribute comparatively smaller shares, highlighting a strong geographic concentration within the seller ecosystem.
 
-Seller activity is highly concentrated geographically. São Paulo contributes approximately 64% of marketplace revenue, highlighting its dominant role within the seller ecosystem and emphasizing regional concentration.
+Recommended Action
+
+Reduce geographic concentration risk by encouraging **seller acquisition and marketplace expansion** in underrepresented states. Diversifying the seller base can improve marketplace resilience, increase regional product availability, and reduce dependency on a single geographic market.
 
 ---
 
