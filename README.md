@@ -1,238 +1,410 @@
-# E-Commerce Customer Intelligence & Sales Analytics
+# End-to-End E-Commerce Marketplace Analytics
+![Language](https://img.shields.io/badge/Language-Python-3776AB?style=flat-square) ![Data Analysis](https://img.shields.io/badge/Data%20Analysis-Pandas%20%7C%20NumPy-150458?style=flat-square) ![Visualization](https://img.shields.io/badge/Visualization-Plotly%20%7C%20Matplotlib-2b5b84?style=flat-square) ![Dev Environment](https://img.shields.io/badge/Environment-Jupyter-F37626?style=flat-square) ![Version Control](https://img.shields.io/badge/Version%20Control-Git%20%2F%20GitHub-F05032?style=flat-square)
 
-[![Python](https://img.shields.io/badge/Python-Data_Analytics-blue?style=flat\&logo=python)](#)
-[![Pandas](https://img.shields.io/badge/Data_Processing-Pandas-darkblue?style=flat)](#)
-[![Plotly](https://img.shields.io/badge/Data_Visualization-Plotly-purple?style=flat)](#)
-[![Customer Analytics](https://img.shields.io/badge/Analytics-RFM_Segmentation-green?style=flat)](#)
-[![Business Intelligence](https://img.shields.io/badge/Business_Intelligence-Customer_Insights-orange?style=flat)](#)
+## Overview
 
-## Executive Overview
+This project presents an end-to-end analytical assessment of a multi-vendor e-commerce marketplace using transactional, customer, product, seller, payment, and logistics data.
 
-E-Commerce Customer Intelligence & Sales Analytics is an end-to-end business analytics project developed to evaluate customer purchasing behavior, retention patterns, product performance, seller contribution, and operational efficiency within an e-commerce environment.
+The objective was to evaluate marketplace performance through five strategic perspectives:
 
-The project integrates nine interconnected relational datasets and applies RFM segmentation, retention analysis, and interactive visual reporting to generate actionable business insights.
+* Customer Analytics
+* Product Analytics
+* Seller Analytics
+* Delivery & Customer Experience Analytics
+* Revenue & Marketplace Analytics
 
-The analytical framework begins with **RFM Analysis** and progressively expands into product analytics, seller performance evaluation, customer experience assessment, and sales trend analysis.
-
----
-
-## Project Roadmap
-
-| Phase                                    | Status         |
-| ---------------------------------------- | -------------- |
-| Customer Analytics & RFM Segmentation    | ✅ Completed    |
-| Product & Category Performance Analytics | 🔄 In Progress |
-| Seller Performance Analytics             | ⏳ Planned      |
-| Delivery & Customer Experience Analytics | ⏳ Planned      |
-| Sales Performance & Geographic Analytics | ⏳ Planned      |
+The analysis combines customer segmentation, product portfolio evaluation, seller ecosystem assessment, logistics performance measurement, and revenue concentration analysis to uncover the key drivers of marketplace growth, operational efficiency, and customer satisfaction.
 
 ---
 
-## Dashboard / Notebook Preview
+## Business Objectives
 
-*Final project screenshots and visualizations will be added as each analytical phase is completed.*
+### Customer Analytics
 
----
+* Identify high-value customer segments
+* Evaluate customer retention behavior
+* Understand revenue contribution by customer groups
 
-## Business Problem
+### Product Analytics
 
-E-commerce organizations generate large volumes of transactional data across customers, products, sellers, payments, and logistics operations. While this information contains valuable insights, deriving meaningful business intelligence requires integrating multiple datasets and applying structured analytical methodologies.
+* Identify revenue-driving categories
+* Evaluate product portfolio performance
+* Assess logistics efficiency across categories
+* Discover cross-category purchasing patterns
 
-This project addresses several key business questions:
+### Seller Analytics
 
-* Which customers generate the highest value?
-* How effectively does the business retain customers?
-* Which product categories contribute most to revenue?
-* How concentrated is revenue among sellers?
-* How do operational factors influence customer satisfaction?
-* Which geographic regions contribute most to overall sales performance?
+* Analyze seller performance distribution
+* Measure marketplace dependency on top sellers
+* Identify category-level seller dominance
 
----
+### Delivery & Customer Experience Analytics
 
-## Project Objectives
+* Measure fulfillment efficiency
+* Evaluate delivery reliability
+* Assess the impact of delivery performance on customer satisfaction
 
-* Analyze customer purchasing behavior and spending patterns.
-* Measure customer retention and repeat purchase behavior.
-* Segment customers using **RFM methodology**.
-* Evaluate product and category performance.
-* Assess seller contribution to overall platform revenue.
-* Analyze delivery efficiency and customer satisfaction.
-* Generate data-driven recommendations for business growth.
+### Revenue & Marketplace Analytics
 
----
-
-## Dataset Overview
-
-The project combines nine interconnected datasets representing multiple dimensions of an e-commerce ecosystem.
-
-| Dataset                      | Type      | Description                                     |
-| ---------------------------- | --------- | ----------------------------------------------- |
-| Customers                    | Dimension | Customer identifiers and geographic information |
-| Orders                       | Fact      | Order lifecycle and transaction details         |
-| Order Items                  | Fact      | Product-level purchase records                  |
-| Payments                     | Fact      | Payment methods and transaction values          |
-| Reviews                      | Fact      | Customer ratings and feedback                   |
-| Products                     | Dimension | Product attributes and category information     |
-| Sellers                      | Dimension | Seller information and locations                |
-| Geolocation                  | Dimension | Geographic mapping and location data            |
-| Product Category Translation | Lookup    | Product category translation mapping            |
+* Analyze revenue growth trends
+* Evaluate marketplace revenue concentration
+* Understand customer payment preferences
 
 ---
-
-## 👥 Customer Analytics & RFM Segmentation
-
-### RFM Framework
-
-Customer behavior was evaluated using three key metrics:
-
-| Metric        | Description                                              |
-| ------------- | -------------------------------------------------------- |
-| **Recency**   | Number of days since the customer's most recent purchase |
-| **Frequency** | Total number of unique purchases made by a customer      |
-| **Monetary**  | Total spending generated by a customer                   |
-
-### Methodology
-
-The RFM analysis was developed by integrating customer, order, and payment datasets to create a customer-level analytical base table.
-
-```text
-Customers + Orders + Payments
-              ↓
-      RFM Base Table
-              ↓
- Recency | Frequency | Monetary
-              ↓
-      RFM Scoring
-              ↓
- Customer & Retention Segments
-              ↓
-      Customer Insights
-```
-
-* Calculated **Recency**, **Frequency**, and **Monetary** metrics for each customer.
-* Applied quintile-based scoring to **Recency** and **Monetary** using `pd.qcut()`.
-* Created retention segments: One-Time Buyer, Returning Customer, and Loyal Customer.
-* Developed customer value segments using Recency and Monetary scoring logic.
-* Evaluated retention patterns, spending behavior, and repeat purchase trends.
-
-### Customer Value Segments
-
-* **Champion**
-* **Potential Loyalist**
-* **Regular Customer**
-* **At Risk**
-* **Lost Customer**
-
-### Retention Segments
-
-* **One-Time Buyer**
-* **Returning Customer**
-* **Loyal Customer**
-
----
-
-## Key Findings
-
-### Customer Retention
-
-* Approximately **97%** of customers made only a single purchase.
-* **Repeat Purchase Rate:** ~3%.
-
-### Customer Value
-
-* Loyal customers generated significantly higher average spending than one-time buyers.
-* Customer value was concentrated within a relatively small group of repeat purchasers.
-
-### Strategic Insight
-
-* A substantial proportion of **Champion customers** were still one-time buyers.
-* Strong customer acquisition does not automatically translate into long-term customer retention.
-* Retention-focused initiatives may generate greater long-term value than acquisition efforts alone.
-
----
-
-## Visualizations
-
-### Customer Segment Distribution
-
-<img width="1017" height="525" alt="newplot (1)" src="https://github.com/user-attachments/assets/4a9706a5-1873-4327-a5c1-8006022f1b48" />
-
-### RFM Customer Distribution Heatmap
-
-<img width="1017" height="525" alt="newplot (2)" src="https://github.com/user-attachments/assets/5b2f669a-2b68-401d-b6e1-7907535a44d5" />
-
-### Average Spend by Customer Segment
-
-<img width="1017" height="525" alt="newplot (3)" src="https://github.com/user-attachments/assets/9e676c82-0a27-4bb4-a956-3e49749eff73" />
-
-### Frequency Segment Distribution
-
-<img width="1017" height="525" alt="newplot (4)" src="https://github.com/user-attachments/assets/b93a974a-53aa-4354-b3b8-c1130d442428" />
-
-### Customer Segment vs Retention Segment Heatmap
-
-<img width="1017" height="525" alt="newplot (5)" src="https://github.com/user-attachments/assets/df6ec157-fa1d-40fd-b276-bb3ea620e134" />
-
----
-
-## Technology Stack
-
-| Category                | Tools                          |
-| ----------------------- | ------------------------------ |
-| Programming Language    | Python                         |
-| Data Processing         | Pandas, NumPy                  |
-| Data Visualization      | Plotly Express                 |
-| Development Environment | Jupyter Notebook, Google Colab |
-
----
-
-## Future Analysis Pipeline
-
-### 📦 Product & Category Performance Analytics
-
-* Revenue by Product Category
-* Best-Selling Product Categories
-* Category Contribution Analysis
-* Product Portfolio Evaluation
-* Category-Level Revenue Distribution
-
-### 🏪 Seller Performance Analytics
-
-* Seller Revenue Contribution
-* Order Volume Analysis
-* Revenue Distribution Across Sellers
-* Seller Concentration Analysis
-* Top Seller Performance Evaluation
-
-### 🚚 Delivery & Customer Experience Analytics
-
-* Delivery Time Analysis
-* Delivery Delay Analysis
-* Review Score Distribution
-* Impact of Delivery Performance on Customer Satisfaction
-* Logistics Performance Assessment
-
-### 📈 Sales Performance & Geographic Analytics
-
-* Revenue Trend Analysis
-* Order Volume Trends
-* Geographic Sales Distribution
-* Payment Method Analysis
-* Regional Performance Evaluation
-
----
-
-## Expected Outcome
-
-Upon completion, this project will provide a comprehensive analytical view of customer behavior, product performance, seller contribution, operational efficiency, and sales performance within an e-commerce environment.
-
-The resulting insights will support data-driven decision-making across customer retention, product strategy, marketing optimization, seller management, and operational planning.
 
 ## Dataset
 
-This project uses the Olist Brazilian E-Commerce Dataset.
+The analysis was conducted using the Olist Brazilian E-Commerce Dataset.
 
-Download:
-https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+### Core Tables
 
-After downloading, place all CSV files in a local `data/` folder before running the notebook.
+| Dataset                      | Description                            |
+| ---------------------------- | -------------------------------------- |
+| Customers                    | Customer information                   |
+| Orders                       | Order lifecycle and delivery data      |
+| Order Items                  | Product-level transaction records      |
+| Products                     | Product information                    |
+| Product Category Translation | Category mapping                       |
+| Sellers                      | Seller information                     |
+| Payments                     | Payment methods and transaction values |
+| Reviews                      | Customer review scores                 |
+
+---
+
+## Tools & Technologies
+
+### Programming & Analysis
+
+* Python
+* Pandas
+* NumPy
+
+### Data Visualization
+
+* Plotly Express
+* Matplotlib
+
+### Development Environment
+
+* Jupyter Notebook / Google Colab
+
+### Version Control
+
+* Git
+* GitHub
+
+---
+
+# Analysis Framework
+
+## 1. Customer Analytics
+
+### RFM Segmentation
+
+Customers were initially evaluated using the Recency, Frequency, and Monetary (RFM) framework to understand purchasing behavior and customer value.
+
+#### Key Findings
+* Approximately 97% of customers made only a single purchase.
+* Frequency showed extremely limited variation across the customer base, reducing its effectiveness as a differentiating metric.
+* As a result, customer segmentation was driven primarily by Recency and Monetary dimensions.
+* Repeat purchase behavior remained relatively low across the marketplace.
+* Customer retention emerged as one of the largest opportunities for long-term growth.
+* 
+**Analytical Note**
+
+Due to the highly skewed purchase frequency distribution, Frequency provided limited segmentation value in this dataset. Consequently, customer analysis focused primarily on Recency and Monetary behavior, while Frequency was examined separately through retention and repeat-purchase analysis.
+
+---
+### Recency vs Monetary Customer Distribution
+
+<img width="1340" height="448" alt="newplot (22)" src="https://github.com/user-attachments/assets/46dbd6e1-faa9-4fe0-a05b-4f5c0adf8e00" />
+
+**Insight**
+
+The customer base is heavily concentrated in **medium-to-high Recency and Monetary score** combinations, indicating that a large proportion of customers have purchased relatively recently and generated meaningful revenue. However, a noticeable group of low-recency customers remains, suggesting that customer churn and inactivity continue to impact the marketplace.
+
+Recommended Action:
+Prioritize retention and re-engagement strategies for customers with declining recency scores while nurturing recently active, high-spending customers through personalized offers, loyalty programs, and targeted marketing campaigns. Improving repeat purchase behavior among these segments can significantly increase customer lifetime value.
+
+### Customer Value Segmentation
+
+<img width="1340" height="525" alt="newplot (21)" src="https://github.com/user-attachments/assets/54792b95-eab3-459e-b8a5-befca46581d3" />
+
+#### Insight
+
+Regular Customers represent the largest customer segment, followed by Potential Loyalists, indicating that the marketplace has successfully built a broad customer base. However, the sizeable **At Risk and Lost Customer segments** suggest that a significant portion of customers may not be progressing toward long-term loyalty. While Champion customers form a meaningful high-value segment, there remains substantial opportunity to increase customer lifetime value through improved retention and engagement strategies.
+
+Recommended Action:
+Focus on converting **Regular Customers and Potential Loyalists** into repeat purchasers through personalized promotions, loyalty programs, and targeted post-purchase engagement. Simultaneously, implement reactivation campaigns for At Risk and Lost Customers to reduce churn and strengthen long-term customer retention.
+
+---
+
+### Customer Value Segment vs Retention Segment
+
+<img width="1340" height="525" alt="newplot (25)" src="https://github.com/user-attachments/assets/565e89e7-ca23-4a1e-b3b8-1389d70a14c0" />
+
+
+#### Insight
+
+Despite the presence of high-value customer segments such as Champions and Potential Loyalists, the marketplace is overwhelmingly dominated by one-time buyers across all customer groups. Repeat purchasing behavior remains limited, indicating that customer acquisition is significantly outperforming customer retention.
+
+Recommended Action:
+Implement retention-focused initiatives such as personalized remarketing campaigns, loyalty programs, post-purchase engagement journeys, and targeted offers for high-value customers. Increasing repeat purchase rates among existing customers is likely to deliver greater long-term revenue growth than customer acquisition alone.
+
+---
+
+## 2. Product Analytics
+
+### Pareto Analysis
+
+<img width="1340" height="525" alt="newplot (26)" src="https://github.com/user-attachments/assets/c7a94bea-3743-4910-b58a-38665e81dd07" />
+
+#### Insight
+Revenue follows a classic Pareto distribution, with only 16 of 71 product categories generating approximately 80% of total marketplace revenue. These categories serve as the marketplace's primary revenue drivers and have a disproportionate impact on overall business performance.
+
+Recommended Action: Focus promotional campaigns, inventory planning, and category growth initiatives on these high-performing categories while identifying secondary categories with growth potential to diversify revenue sources.
+
+---
+
+### Product Portfolio Matrix
+
+<img width="1340" height="525" alt="newplot (27)" src="https://github.com/user-attachments/assets/edd17a5c-9820-46e3-8e1e-e65fdef576a1" />
+
+
+#### Insight
+
+The marketplace product portfolio is highly diverse, with categories distributed across all four strategic quadrants. While a small group of Portfolio Stars drives both sales volume and revenue, several categories function primarily as Traffic Drivers, generating customer demand despite lower average prices. The presence of Premium Niches suggests opportunities for higher-margin growth, while Low Impact Categories contribute relatively little to marketplace performance and may dilute operational focus.
+
+Recommended Action:
+Prioritize inventory planning, promotional investment, and supplier partnerships for **Portfolio Stars** to sustain revenue growth. Use **Traffic Drivers** to attract and retain customers through competitive pricing and cross-selling opportunities. Expand high-potential **Premium Niches** through targeted marketing and product assortment strategies, while reviewing **Low Impact Categories** for optimization, repositioning, or potential rationalization.
+
+---
+
+### Freight Efficiency Analysis
+
+<img width="1340" height="525" alt="newplot (28)" src="https://github.com/user-attachments/assets/6306dee4-b350-48d1-8e50-70dc9deee6b9" />
+
+
+#### Insight
+Freight costs consume a disproportionately large share of product value in several categories, with some categories allocating more than 25-35% of product price toward shipping expenses. This indicates that logistics costs can significantly erode profitability, particularly for bulky, low-priced, or difficult-to-ship products. Categories such as furniture, food, and electronics appear especially exposed to transportation cost pressures.
+
+Recommended Action:
+Review shipping strategies for high freight-ratio categories by optimizing packaging, consolidating shipments, negotiating carrier rates, or adjusting pricing structures to better absorb logistics costs. Prioritize operational improvements in categories with the highest freight burden to protect margins and improve overall marketplace profitability.
+
+
+---
+
+## 3. Seller Analytics
+
+### Geographic Seller Performance
+
+<img width="1340" height="525" alt="newplot (30)" src="https://github.com/user-attachments/assets/fc2cabba-aa42-43b8-9e7a-408171d8e318" />
+
+
+#### Insight
+
+Seller activity is highly concentrated geographically. São Paulo contributes approximately 64% of marketplace revenue, highlighting its dominant role within the seller ecosystem and emphasizing regional concentration.
+
+---
+
+### Marketplace Dependency Risk
+
+<img width="1340" height="525" alt="newplot (31)" src="https://github.com/user-attachments/assets/28f869dd-d871-4c66-96c2-baddf7aba291" />
+
+#### Insight
+
+Marketplace revenue is moderately concentrated among a relatively small group of sellers. Approximately 543 sellers (17.5% of all sellers) generate 80% of marketplace revenue, creating operational dependence on key vendors while maintaining broader seller participation.
+
+---
+
+### Seller Category Specialization
+
+<img width="1340" height="525" alt="newplot (32)" src="https://github.com/user-attachments/assets/c39f82aa-cd63-464e-8f9b-888fed7788ee" />
+
+
+#### Insight
+
+Competitive intensity varies considerably across product categories. While some categories distribute revenue among many sellers, others are dominated by a small number of vendors, increasing category-level concentration risk.
+
+---
+
+## 4. Delivery & Customer Experience Analytics
+
+### Fulfillment Velocity Analysis
+
+<img width="1340" height="525" alt="newplot (33)" src="https://github.com/user-attachments/assets/d1dc3c99-d95f-4f57-b1b8-4cff8e789dd0" />
+
+
+#### Key Metrics
+
+| Metric           | Average Days |
+| ---------------- | -----------: |
+| Approval Time    |         0.43 |
+| Dispatch Time    |         2.80 |
+| Delivery Time    |         9.33 |
+| Total Cycle Time |        12.56 |
+
+#### Insight
+
+The average order lifecycle is approximately 12.6 days. Delivery transit alone accounts for nearly 74% of total fulfillment time, making transportation and last-mile logistics the primary operational bottleneck.
+
+---
+
+### Delivery Reliability Analysis
+
+<img width="1340" height="525" alt="newplot (34)" src="https://github.com/user-attachments/assets/bee2d0c0-f1f2-4d90-9d12-0137f34a64e4" />
+
+
+#### Key Metrics
+
+* 91.9% of orders delivered on time or early
+* 8.1% of orders delivered late
+* Average delay among late orders: 9.5 days
+
+#### Insight
+
+Delivery performance remains strong across the marketplace, with the vast majority of orders arriving on or before the promised delivery date. However, delayed orders experience substantial overruns that can negatively impact customer experience.
+
+---
+
+### Delivery Performance vs Customer Reviews
+
+<img width="1340" height="525" alt="newplot (35)" src="https://github.com/user-attachments/assets/cfffefba-ffed-49af-84ca-fb0739988d24" />
+
+
+#### Key Metrics
+
+| Delivery Status | Average Review Score |
+| --------------- | -------------------: |
+| On Time / Early |                 4.29 |
+| Late            |                 2.57 |
+
+#### Insight
+
+Customer satisfaction is strongly linked to delivery performance. Orders delivered on time receive significantly higher review scores, while customer ratings decline sharply when delivery delays occur.
+
+---
+
+## 5. Revenue & Marketplace Analytics
+
+### Revenue Trend Analysis
+
+<img width="1340" height="525" alt="newplot (36)" src="https://github.com/user-attachments/assets/c356de80-69b2-48d3-b685-c64cbb12552f" />
+
+#### Insight
+
+Marketplace revenue expanded rapidly throughout 2017, increasing nearly sixfold before reaching a peak of approximately 1.15 million during late 2017. Revenue subsequently stabilized above one million per month, indicating a transition toward marketplace maturity.
+
+---
+
+### Revenue Concentration Analysis
+
+<img width="1340" height="525" alt="newplot (37)" src="https://github.com/user-attachments/assets/849c22b6-6b61-4acf-8baa-21032bce12b9" />
+
+#### Results
+
+| Entity     | % Required to Generate 80% Revenue |
+| ---------- | ---------------------------------: |
+| Sellers    |                              17.5% |
+| Categories |                              22.5% |
+| Customers  |                              49.2% |
+
+#### Insight
+
+Revenue concentration varies significantly across marketplace entities. Sellers and categories exhibit relatively high concentration levels, while customer spending remains broadly distributed. Nearly half of all customers are required to generate 80% of marketplace revenue, reducing customer concentration risk.
+
+---
+
+### Payment Behavior Analysis
+
+<img width="1340" height="525" alt="newplot (38)" src="https://github.com/user-attachments/assets/538e9b70-eb71-452d-86f0-906514850bb0" />
+
+
+#### Revenue Share by Payment Method
+
+| Payment Method | Revenue Share |
+| -------------- | ------------: |
+| Credit Card    |         78.3% |
+| Boleto         |         17.9% |
+| Voucher        |          2.4% |
+| Debit Card     |          1.4% |
+
+#### Insight
+
+Customer payment behavior is heavily dominated by credit card transactions, which account for more than three-quarters of marketplace revenue. Alternative payment methods play a significantly smaller role in overall transaction volume.
+
+---
+
+# Key Business Findings
+
+### Customer Insights
+
+* Customer retention remains one of the largest growth opportunities for the marketplace.
+* Revenue is supported by a broad customer base rather than a small group of high-value customers.
+* Repeat purchasing behavior remains relatively limited despite strong customer acquisition.
+
+### Product Insights
+
+* Revenue generation is concentrated among a limited number of product categories.
+* Product categories play distinct strategic roles within the marketplace ecosystem.
+* Freight costs significantly impact profitability in selected categories.
+* Cross-category purchasing behavior remains relatively low.
+
+### Seller Insights
+
+* Marketplace performance depends heavily on a relatively small group of high-performing sellers.
+* Seller revenue is geographically concentrated, with São Paulo dominating marketplace activity.
+* Competitive intensity varies significantly across product categories.
+
+### Operational Insights
+
+* Delivery transit time is the largest fulfillment bottleneck.
+* Overall delivery reliability remains strong.
+* Customer satisfaction declines significantly as delivery delays increase.
+
+### Revenue Insights
+
+* Revenue growth accelerated rapidly during the marketplace expansion phase.
+* Revenue concentration risk exists primarily among sellers and categories rather than customers.
+* Credit cards dominate marketplace transactions and revenue generation.
+
+---
+
+## Project Structure
+
+```text
+E-Commerce-Marketplace-Analytics/
+│
+├── data/
+├── notebooks/
+│   ├── customer_analytics.ipynb
+│   ├── product_analytics.ipynb
+│   ├── seller_analytics.ipynb
+│   ├── delivery_analytics.ipynb
+│   └── revenue_analytics.ipynb
+│
+├── visuals/
+├── README.md
+└── requirements.txt
+```
+
+---
+
+## Skills Demonstrated
+
+* Data Cleaning & Transformation
+* Exploratory Data Analysis (EDA)
+* Customer Segmentation (RFM)
+* Revenue & Concentration Analysis
+* Marketplace Analytics
+* Logistics & Operations Analytics
+* Business Intelligence
+* Data Visualization
+* Data Storytelling
+* Strategic Business Analysis
+
+---
+
+## Conclusion
+
+This project demonstrates how customer behavior, product performance, seller dynamics, logistics efficiency, and revenue concentration collectively influence marketplace success. By integrating customer, commercial, operational, and financial analytics, the analysis provides a comprehensive view of marketplace performance and identifies opportunities for growth, efficiency improvements, and risk reduction.
